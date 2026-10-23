@@ -1,0 +1,507 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samvardhini K | Portfolio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg: #0b1120;
+    --card: #131d32;
+    --blue: #38bdf8;
+    --white: #f1f5f9;
+    --muted: #a8b4c8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--white);
+    min-height: 100vh;
+}
+
+header {
+    padding: 20px 7%;
+    background: #0f172a;
+    border-bottom: 1px solid #26334b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    color: var(--blue);
+    font-size: 25px;
+}
+
+nav {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+nav button {
+    background: transparent;
+    border: none;
+    color: var(--white);
+    font-family: inherit;
+    padding: 9px 12px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+nav button:hover,
+nav button.active {
+    color: var(--blue);
+}
+
+.section {
+    display: none;
+    min-height: calc(100vh - 140px);
+    padding: 60px 10%;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.4s ease;
+}
+
+.section.active {
+    display: flex;
+}
+
+#home {
+    justify-content: space-between;
+    gap: 45px;
+}
+
+.home-content {
+    max-width: 600px;
+}
+
+.subtitle {
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: clamp(34px, 5vw, 52px);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+h3 {
+    color: var(--blue);
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+p {
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+.profile-img {
+    width: 290px;
+    height: 350px;
+    object-fit: cover;
+    object-position: center;
+    border: 4px solid var(--blue);
+    border-radius: 24px;
+    box-shadow: 0 0 35px #38bdf826;
+}
+
+.primary-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 23px;
+    background: var(--blue);
+    color: #07111f;
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.primary-btn:hover {
+    background: #7dd3fc;
+    transform: translateY(-2px);
+}
+
+.content-box {
+    width: 100%;
+    max-width: 850px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.skill-card {
+    background: var(--card);
+    border: 1px solid #263852;
+    border-radius: 12px;
+    padding: 22px 10px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--blue);
+}
+
+.project-card {
+    margin-top: 25px;
+    max-width: 650px;
+    padding: 28px;
+    background: var(--card);
+    border: 1px solid #263852;
+    border-radius: 15px;
+}
+
+.project-card h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.project-tag {
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.contact-detail a {
+    color: var(--blue);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin-top: 25px;
+}
+
+#contactForm input,
+#contactForm textarea {
+    width: 100%;
+    padding: 14px;
+    background: var(--card);
+    border: 1px solid #34445f;
+    border-radius: 8px;
+    color: var(--white);
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+    border-color: var(--blue);
+}
+
+#contactForm textarea {
+    resize: vertical;
+}
+
+footer {
+    padding: 18px;
+    text-align: center;
+    background: #0f172a;
+    border-top: 1px solid #26334b;
+}
+
+footer p {
+    margin: 0;
+    font-size: 12px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 850px) {
+    header {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    #home {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .profile-img {
+        width: 230px;
+        height: 270px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 500px) {
+    .section {
+        padding: 40px 6%;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    nav button {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .profile-img {
+        width: 200px;
+        height: 240px;
+    }
+
+    .project-card {
+        padding: 20px;
+    }
+
+    .skill-card {
+        padding: 17px 8px;
+        font-size: 13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2 class="logo">Samvardhini.</h2>
+
+    <nav>
+        <button class="active" onclick="showSection('home', this)">Home</button>
+        <button onclick="showSection('about', this)">About Me</button>
+        <button onclick="showSection('skills', this)">Skills</button>
+        <button onclick="showSection('projects', this)">Projects</button>
+        <button onclick="showSection('contact', this)">Contact</button>
+    </nav>
+</header>
+
+<main>
+
+    <!-- HOME PAGE -->
+    <section id="home" class="section active">
+        <div class="home-content">
+            <p class="subtitle">HELLO, I'M</p>
+            <h1>Samvardhini K</h1>
+            <h3>Student | Programmer | Problem Solver</h3>
+
+            <p>
+                Welcome to my portfolio! I enjoy coding, learning new
+                technologies, and building useful projects.
+            </p>
+
+            <button class="primary-btn"
+                    onclick="showSection('projects')">
+                View My Project
+            </button>
+        </div>
+
+        <div class="profile-container">
+            <img src="profile.jpg"
+                 alt="Samvardhini K"
+                 class="profile-img">
+        </div>
+    </section>
+
+    <!-- ABOUT PAGE -->
+    <section id="about" class="section">
+        <div class="content-box">
+            <p class="subtitle">GET TO KNOW ME</p>
+            <h1>About Me</h1>
+
+            <p>
+                I am a student passionate about programming and technology.
+                I enjoy solving problems, exploring new concepts, and
+                improving my coding skills.
+            </p>
+
+            <p>
+                My goal is to develop my technical knowledge and create
+                projects that are practical and useful.
+            </p>
+        </div>
+    </section>
+
+    <!-- SKILLS PAGE -->
+    <section id="skills" class="section">
+        <div class="content-box">
+            <p class="subtitle">WHAT I KNOW</p>
+            <h1>My Skills</h1>
+
+            <div class="skills-grid">
+                <div class="skill-card">HTML</div>
+                <div class="skill-card">CSS</div>
+                <div class="skill-card">JavaScript</div>
+                <div class="skill-card">Java</div>
+                <div class="skill-card">Python</div>
+                <div class="skill-card">C Programming</div>
+                <div class="skill-card">Problem Solving</div>
+                <div class="skill-card">Communication</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS PAGE -->
+    <section id="projects" class="section">
+        <div class="content-box">
+            <p class="subtitle">MY WORK</p>
+            <h1>My Project</h1>
+
+            <div class="project-card">
+                <p class="project-tag">JAVA PROJECT</p>
+                <h2>Personal Contact Directory</h2>
+
+                <p>
+                    A Java-based project that helps users manage personal
+                    contact information with search and update features.
+                </p>
+
+                <a href="https://github.com/samvardhini1377-eng/Personal-contact-directory-with-search-and-update-features"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="primary-btn">
+                    View on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT PAGE -->
+    <section id="contact" class="section">
+        <div class="content-box">
+            <p class="subtitle">LET'S CONNECT</p>
+            <h1>Contact Me</h1>
+
+            <p>
+                If you would like to connect with me, send me an email.
+            </p>
+
+            <p class="contact-detail">
+                <strong>Email:</strong>
+                <a href="mailto:samvardhini1377@gmail.com">
+                    samvardhini1377@gmail.com
+                </a>
+            </p>
+
+            <form id="contactForm">
+                <input type="text"
+                       id="name"
+                       placeholder="Your Name"
+                       required>
+
+                <input type="email"
+                       id="email"
+                       placeholder="Your Email"
+                       required>
+
+                <textarea id="message"
+                          placeholder="Your Message"
+                          rows="5"
+                          required></textarea>
+
+                <button type="submit" class="primary-btn">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 Samvardhini K | Personal Portfolio</p>
+</footer>
+
+<script>
+function showSection(sectionId, clickedButton) {
+    document.querySelectorAll(".section").forEach(function(section) {
+        section.classList.remove("active");
+    });
+
+    document.querySelectorAll("nav button").forEach(function(button) {
+        button.classList.remove("active");
+    });
+
+    const selectedSection = document.getElementById(sectionId);
+
+    if (selectedSection) {
+        selectedSection.classList.add("active");
+    }
+
+    if (clickedButton) {
+        clickedButton.classList.add("active");
+    } else {
+        document.querySelectorAll("nav button").forEach(function(button) {
+            if (button.getAttribute("onclick") &&
+                button.getAttribute("onclick").includes("'" + sectionId + "'")) {
+                button.classList.add("active");
+            }
+        });
+    }
+}
+
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    const subject = encodeURIComponent("Portfolio Contact from " + name);
+
+    const body = encodeURIComponent(
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n\n" +
+        "Message:\n" + message
+    );
+
+    window.location.href =
+        "mailto:samvardhini1377@gmail.com?subject=" +
+        subject + "&body=" + body;
+}
+);
+</script>
+
+</body>
+</html>
